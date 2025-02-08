@@ -25,7 +25,7 @@ class GameController extends Controller
         // Lògica per comparar les cartes
         $player1Card = $request->input('player1_card');
         $player2Card = $request->input('player2_card');
-        
+
         // Aquí compararies les cartes
         // Exemple:
         if ($player1Card > $player2Card) {
