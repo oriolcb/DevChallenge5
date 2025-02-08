@@ -1,32 +1,25 @@
-<!-- resources/views/game.blade.php -->
-
 <!DOCTYPE html>
-<html lang="ca">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joc de Carta més Alta</title>
-    @vite(['resources/js/game.js'])
+    <title>Juego de Carta Más Alta</title>
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 </head>
-
 <body>
-    <div id="game">
-        <h1>Joc de Carta més Alta</h1>
-        <button onclick="startGame()">Iniciar Joc</button>
-
+    <div class="game">
+        <h1>Juego de Carta Más Alta</h1>
         <div id="player1-cards">
-            <h2>Jugador 1 - Escull una carta:</h2>
-            <!-- Aquí es mostrarien les cartes del jugador 1 -->
+            <h3>Jugador 1</h3>
+            <ul id="cards1"></ul>
         </div>
-
         <div id="player2-cards">
-            <h2>Jugador 2 - Escull una carta:</h2>
-            <!-- Aquí es mostrarien les cartes del jugador 2 -->
+            <h3>Jugador 2</h3>
+            <ul id="cards2"></ul>
         </div>
-
-        <div id="result"></div>
+        <button id="start-game">Empezar Juego</button>
     </div>
-</body>
 
+    <script src="{{ asset('js/game.js') }}"></script>
+</body>
 </html>
