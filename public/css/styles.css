@@ -35,7 +35,8 @@ h3 {
 }
 
 /* Estilos para las cartas */
-#player1-cards, #player2-cards {
+#player1-cards,
+#player2-cards {
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -69,12 +70,14 @@ li {
 #player1-cards li:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-    background-color: rgba(76, 175, 80, 0.8); /* Fondo verde con opacidad más alta */
+    background-color: rgba(76, 175, 80, 0.8);
+    /* Fondo verde con opacidad más alta */
 }
 
 /* Hover sobre las cartas del jugador 2 (sin animación, solo cambio de color) */
 #player2-cards li:hover {
-    background-color: rgba(169, 169, 169, 0.6); /* Fondo gris oscuro */
+    background-color: rgba(169, 169, 169, 0.6);
+    /* Fondo gris oscuro */
 }
 
 /* El botón dentro de la carta no se ve afectado por el hover */
@@ -90,7 +93,8 @@ li button {
 
 /* Evitar que el nombre de la carta (el texto dentro del botón) se ilumine */
 li button:hover {
-    background-color: transparent; /* No cambiar el fondo del botón al hacer hover */
+    background-color: transparent;
+    /* No cambiar el fondo del botón al hacer hover */
 }
 
 /* El nombre del jugador no se ve afectado por el hover */
@@ -168,4 +172,12 @@ button:disabled {
     background-color: #ddd;
     color: #999;
     cursor: not-allowed;
+}
+
+/* Estilo para las cartas deshabilitadas */
+#cards1 .disabled,
+#cards2 .disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    /* Atenuar las cartas deshabilitadas */
 }
