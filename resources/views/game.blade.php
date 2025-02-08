@@ -9,17 +9,40 @@
 <body>
     <div class="game">
         <h1>Juego de Carta Más Alta</h1>
+
+        @if(isset($result))
+            <h3>Resultado: {{ $result }}</h3>
+        @endif
+
+        <!-- Contenedor de cartas del jugador 1 -->
         <div id="player1-cards">
             <h3>Jugador 1</h3>
-            <ul id="cards1"></ul>
+            <ul>
+                @foreach($cards['player1'] as $index => $card)
+                    <li>
+                        <form action="{{ route('game.compare') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="player1_card" value="{{ $card }}">
+                            <input type="hidden" name="player2_card" value="{{ $cards['player2'][$index] }}">
+                            <button type="submit">{{ $card }}</button>
+                        </form>
+                    </li>
+                @endforeach
+            </ul>
         </div>
+
+        <!-- Contenedor de cartas del jugador 2 -->
         <div id="player2-cards">
             <h3>Jugador 2</h3>
-            <ul id="cards2"></ul>
+            <ul>
+                @foreach($cards['player2'] as $index => $card)
+                    <li>
+                        <button>{{ $card }}</button>
+                    </li>
+                @endforeach
+            </ul>
         </div>
-        <button id="start-game">Empezar Juego</button>
-    </div>
 
-    <script src="{{ asset('js/game.js') }}"></script>
+    </div>
 </body>
 </html>
