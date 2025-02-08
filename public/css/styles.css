@@ -1,39 +1,171 @@
+/* Estilo General */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
     text-align: center;
-    padding: 20px;
+    color: #333;
+    font-size: 36px;
+    margin-bottom: 20px;
 }
 
+/* Estilo del Contenedor de la Jugada */
 .game {
-    margin-top: 30px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    box-sizing: border-box;
 }
 
+h3 {
+    color: #444;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para las cartas */
 #player1-cards, #player2-cards {
-    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style: none;
     padding: 0;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    gap: 15px;
 }
 
-#player1-cards li, #player2-cards li {
-    margin: 10px;
-    padding: 15px;
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+li {
+    position: relative;
+    width: 100px;
+    height: 140px;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    border: 2px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover solo sobre la carta (el li) para jugador 1 */
+#player1-cards li:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgba(76, 175, 80, 0.8); /* Fondo verde con opacidad más alta */
+}
+
+/* Hover sobre las cartas del jugador 2 (sin animación, solo cambio de color) */
+#player2-cards li:hover {
+    background-color: rgba(169, 169, 169, 0.6); /* Fondo gris oscuro */
+}
+
+/* El botón dentro de la carta no se ve afectado por el hover */
+li button {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* Evitar que el nombre de la carta (el texto dentro del botón) se ilumine */
+li button:hover {
+    background-color: transparent; /* No cambiar el fondo del botón al hacer hover */
+}
+
+/* El nombre del jugador no se ve afectado por el hover */
+h3 {
+    color: #444;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilos especiales para ocultar las cartas del jugador 2 */
+#player2-cards .hidden-card button {
+    font-size: 30px;
+    color: #666;
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+/* Estilo para el botón de repetir juego */
+#repeat-game {
+    margin-top: 20px;
 }
 
 button {
-    padding: 10px 20px;
-    margin-top: 20px;
     background-color: #4CAF50;
     color: white;
+    padding: 10px 20px;
+    font-size: 18px;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
     background-color: #45a049;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Estilo para el resultado */
+#repeat-game h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* Diseño responsivo para pantallas pequeñas */
+@media (max-width: 600px) {
+    .game {
+        width: 95%;
+    }
+
+    li {
+        width: 80px;
+        height: 120px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}
+
+/* Estilo para los botones deshabilitados */
+button:disabled {
+    background-color: #ddd;
+    color: #999;
+    cursor: not-allowed;
 }
